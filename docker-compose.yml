@@ -1,0 +1,22 @@
+services:
+  stocks.realtime.api:
+    image: ${DOCKER_REGISTRY-}stocksrealtimeapi
+    container_name: Stocks.Realtime.Api
+    build:
+      context: .
+      dockerfile: Stocks.Realtime.Api/Dockerfile
+    ports:
+      - 5000:8080
+      - 5001:8081
+
+  stocks.postgres:
+    image: postgres:latest
+    container_name: Stocks.Database
+    environment:
+      - POSTGRES_DB=stocks
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
