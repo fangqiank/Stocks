@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+	  <NoWarn>$(NoWarn);CA1515</NoWarn>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>ba23f4be-789d-49b3-a419-b72679231e72</UserSecretsId>
